@@ -18,7 +18,12 @@ namespace :itunes do
       track = load_track_data(data)
       artist = find_or_create_artist(:name => track[:artist])
       album = find_or_create_album(:name => track[:album], :artist => artist)
-      tracks = Track.create(:album => album, :name => track[:name])
+      tracks = Track.create(
+        :album => album, 
+        :name => track[:name],
+        :total_time => track[:total_time],
+        :location => track[:location]
+      )
     end
 
   end

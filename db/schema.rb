@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101103222858) do
+ActiveRecord::Schema.define(:version => 20101103225624) do
 
   create_table "albums", :force => true do |t|
     t.integer  "artist_id",  :null => false
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(:version => 20101103222858) do
     t.integer  "album_id",   :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "total_time"
+    t.string   "location"
   end
 
 end

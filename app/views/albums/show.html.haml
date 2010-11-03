@@ -1,7 +1,9 @@
-%h2== #{@album.name} by #{@album.artist.name}
+%h2== #{@album.name} by #{link_to @album.artist.name, artist_url(@album.artist)}
+
+%hr
 
 - @album.tracks.each do |track|
-  %li= track.name
+  %li= link_to track.name, track_url(track)
 
 - if @album.tracks.empty?
   %em No tracks

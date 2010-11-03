@@ -54,6 +54,10 @@ IMusic::Application.routes.draw do
   
   resources :artists
   resources :albums
+  resources :tracks
+
+  match '/tracks/:id/play', :controller => :tracks, :action => :play, :as => :track_play
+
   root :controller => :welcome, :action => :index
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

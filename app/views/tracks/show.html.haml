@@ -1,0 +1,3 @@
+%h2== #{@track.name} by #{link_to @track.artist.name, artist_url(@track.artist)} 
+
+%audio{:src => track_play_url(@track), :controls => 'controls', :autoplay => 'autoplay'}

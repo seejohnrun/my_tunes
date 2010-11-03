@@ -1,4 +1,4 @@
-%h2= @artist.name
+%h2== Albums by #{link_to @artist.name, artist_url(@artist)}
 = link_to 'Back to home', root_url
 
 %hr
