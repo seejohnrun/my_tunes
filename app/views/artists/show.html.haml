@@ -1,0 +1,7 @@
+%h2= @artist.name
+= link_to 'Back to home', root_url
+
+%hr
+
+- if @tracks.empty?
+  %em== No tracks for #{@artist.name}
