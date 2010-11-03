@@ -1,0 +1,7 @@
+%h2== #{@album.name} by #{@album.artist.name}
+
+- @album.tracks.each do |track|
+  %li= track.name
+
+- if @album.tracks.empty?
+  %em No tracks

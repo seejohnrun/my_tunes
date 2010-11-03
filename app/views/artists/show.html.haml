@@ -3,5 +3,8 @@
 
 %hr
 
-- if @tracks.empty?
-  %em== No tracks for #{@artist.name}
+- @artist.albums.each do |album|
+  %li= link_to album.name, album_url(album)
+
+- if @artist.albums.empty?
+  %em== No albums for #{@artist.name}
