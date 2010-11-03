@@ -10,13 +10,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101103104904) do
+ActiveRecord::Schema.define(:version => 20101103130043) do
 
   create_table "artists", :force => true do |t|
     t.string   "name"
-    t.string   "source"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "removed",    :default => false, :null => false
   end
 
 end

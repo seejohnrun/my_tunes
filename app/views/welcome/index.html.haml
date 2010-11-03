@@ -1,2 +1,2 @@
 - @artists.each do |artist|
-  %li== #{artist.name} (#{artist.source})
+  %li= link_to artist.name, artist_url(artist)

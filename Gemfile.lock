@@ -72,6 +72,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bundler (= 1.0.3)
   haml (= 3.0.21)
   nokogiri (= 1.4.3.1)
   rails (= 3.0.1)

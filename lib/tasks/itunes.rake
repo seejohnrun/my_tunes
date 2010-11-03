@@ -1,15 +1,14 @@
 namespace :itunes do 
 
-  ITunesXmlPath = '/Users/based/Music/iTunes/iTunes Music Library.xml'
+  ITunesXmlPath = '/Users/johncrepezzi/Music/iTunes/iTunes Music Library.xml'
   ITunesSourceIdentifier = 'iTunes'
-
   Announce = '*** [iMusic]'
 
   desc 'Import the standard iTunes XML file'
   task :import_xml => :environment do
     
     puts "#{Announce} Destroying old data"
-    Artist.destroy_all
+    Artist.mark_all_removed
 
     puts "#{Announce} Loading file at #{ITunesXmlPath}"
     document = Nokogiri::HTML(open(ITunesXmlPath))
@@ -17,7 +16,11 @@ namespace :itunes do
     puts "#{Announce} Running import... this may take a few minutes"
     document.xpath('//plist/dict/dict[1]/dict').each do |data|
       track = load_track_data(data)
-      Artist.create(:name => track[:artist], :source => ITunesSourceIdentifier)
+      if artist = Artist.find_by_name(track[:artist])
+        artist.update_attributes(:removed => false)
+      else
+        artist = Artist.create(:name => track[:artist], :removed => false)
+      end
     end
 
   end
