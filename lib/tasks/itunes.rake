@@ -16,7 +16,7 @@ namespace :itunes do
     puts "#{Announce} Running import... this may take a few minutes"
     document.xpath('//plist/dict/dict[1]/dict').each do |data|
       track = load_track_data(data)
-      artist = Artist.create(:name => track[:artist], :removed => false)
+      artist = Artist.create(:name => track[:artist])
     end
 
   end
