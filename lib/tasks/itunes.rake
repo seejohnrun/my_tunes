@@ -8,7 +8,7 @@ namespace :itunes do
   task :import_xml => :environment do
     
     puts "#{Announce} Destroying old data"
-    Artist.mark_all_removed
+    Artist.destroy_all
 
     puts "#{Announce} Loading file at #{ITunesXmlPath}"
     document = Nokogiri::HTML(open(ITunesXmlPath))
@@ -16,11 +16,7 @@ namespace :itunes do
     puts "#{Announce} Running import... this may take a few minutes"
     document.xpath('//plist/dict/dict[1]/dict').each do |data|
       track = load_track_data(data)
-      if artist = Artist.find_by_name(track[:artist])
-        artist.update_attributes(:removed => false)
-      else
-        artist = Artist.create(:name => track[:artist], :removed => false)
-      end
+      artist = Artist.create(:name => track[:artist], :removed => false)
     end
 
   end
