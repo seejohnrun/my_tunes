@@ -1,6 +1,7 @@
 class ArtistsController < ApplicationController
 
   before_filter :load_artist, :only => [:show]
+  before_filter :authenticate_user!
 
   def show
   end
