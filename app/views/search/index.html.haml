@@ -7,19 +7,19 @@
   %input{:type => 'text', :value => params[:query], :name => 'query'}
   %input{:type => 'submit', :value => 'Search!'}
 
-- if @tracks && !@tracks.empty?
+- if @tracks && @tracks.length != 0
   %h3 Tracks
   %ul.things
     - @tracks.each do |track|
       %li= link_to "&mdash; #{track.name} by #{track.artist_name}".html_safe, track_path(track)
 
-- if @artists && !@artists.empty?
+- if @artists && @artists.length != 0
   %h3 Artists
   %ul.things
     - @artists.each do |artist|
       %li= link_to "&mdash; #{artist.name}".html_safe, artist_path(artist)
 
-- if @albums && !@albums.empty?
+- if @albums && @albums.length != 0
   %h3 Albums
   %ul.things
     - @albums.each do |album|
