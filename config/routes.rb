@@ -1,4 +1,5 @@
 IMusic::Application.routes.draw do
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -57,6 +58,8 @@ IMusic::Application.routes.draw do
   resources :tracks
 
   match '/tracks/:id/play', :controller => :tracks, :action => :play, :as => :track_play
+
+  devise_for :users, :path_names => {:sign_in => 'login', :sign_out => 'logout'}
 
   root :controller => :welcome, :action => :index
 
