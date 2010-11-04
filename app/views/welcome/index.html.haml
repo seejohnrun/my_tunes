@@ -1,2 +1,9 @@
-- @artists.each do |artist|
-  %li= link_to artist.name, artist_url(artist)
+%ul#breadcrumbs
+  %li.crumb.library Library
+
+%ul#things
+  - @artists.each do |artist|
+    %li= link_to "&mdash; #{artist.name}".html_safe, artist_url(artist)
+
+- unless @artists.empty?
+  %em No music

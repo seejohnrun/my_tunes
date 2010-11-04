@@ -1,12 +1,14 @@
-%h2== #{@album.name} by #{link_to @album.artist.name, artist_url(@album.artist)}
+%ul#breadcrumbs
+  %li.crumb<>= link_to 'Library', root_path
+  %li.crumb<>= link_to @album.artist.name, artist_path(@album.artist)
+  %li.crumb<>= @album.name
 
-%hr
-
-- @album.tracks.each do |track|
-  %li
-    = link_to track.name, track_url(track)
-    - if track.total_time
-      == (#{track.pretty_runtime})
+%ul#things
+  - @album.tracks.each do |track|
+    %li
+      = link_to "&mdash; #{track.name}".html_safe, track_url(track)
+      - if track.total_time
+        %span.runtime== (#{track.pretty_runtime})
 
 - if @album.tracks.empty?
   %em No tracks

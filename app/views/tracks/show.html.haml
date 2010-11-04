@@ -1,3 +1,7 @@
-%h2== #{@track.name} by #{link_to @track.artist.name, artist_url(@track.artist)} 
+%ul#breadcrumbs
+  %li.crumb<>= link_to 'Library', root_url
+  %li.crumb<>= link_to @track.artist.name, artist_url(@track.artist)
+  %li.crumb<>= link_to @track.album.name, album_url(@track.album)
+  %li.crumb<>= @track.name
 
 %audio{:src => track_play_url(@track), :controls => 'controls', :autoplay => 'autoplay'}

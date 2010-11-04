@@ -5,4 +5,8 @@ class Album < ActiveRecord::Base
   
   validates_uniqueness_of :name, :scope => :artist_id
 
+  def name
+    self[:name].blank? ? '[unknown]' : self[:name]
+  end
+
 end

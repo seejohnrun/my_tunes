@@ -9,16 +9,23 @@
     = csrf_meta_tag
 
   %body
-    - if notice
-      .notice= notice
-    - if alert
-      .alert= alert
 
-    %h1 myTunes
-    
-    - if user_signed_in?
-      = link_to 'logout', destroy_session_path(:user)
-    - else
-      = link_to 'login', new_session_path(:user)
+    #wrapper
 
-    = yield
+      - if notice
+        .notice= notice
+      - if alert
+        .alert= alert
+
+      #top
+
+        #controls
+          = link_to 'Library', root_url
+          - if user_signed_in?
+            = link_to 'Logout', destroy_session_path(:user)
+          - else
+            = link_to 'Login', new_session_path(:user)
+
+        #site_name myTunes      
+        
+      = yield

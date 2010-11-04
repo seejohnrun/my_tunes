@@ -1,10 +1,10 @@
-%h2== Albums by #{link_to @artist.name, artist_url(@artist)}
-= link_to 'Back to home', root_url
+%ul#breadcrumbs
+  %ul.crumb<>= link_to 'Library', root_url
+  %ul.crumb<>= @artist.name
 
-%hr
-
-- @artist.albums.each do |album|
-  %li= link_to album.name, album_url(album)
+%ul#things 
+  - @artist.albums.each do |album|
+    %li= link_to "&mdash; #{album.name}".html_safe, album_url(album)
 
 - if @artist.albums.empty?
   %em== No albums for #{@artist.name}

@@ -5,4 +5,8 @@ class Artist < ActiveRecord::Base
 
   validates_uniqueness_of :name  
 
+  def name
+    self[:name].blank? ? '[unknown]' : self[:name]
+  end
+
 end
