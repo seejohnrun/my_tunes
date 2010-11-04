@@ -5,5 +5,5 @@
   - @artists.each do |artist|
     %li= link_to "&mdash; #{artist.name}".html_safe, artist_url(artist)
 
-- unless @artists.empty?
+- if @artists.empty?
   %em No music
