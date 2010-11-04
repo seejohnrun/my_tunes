@@ -5,7 +5,8 @@
 - @album.tracks.each do |track|
   %li
     = link_to track.name, track_url(track)
-    == (#{track.pretty_runtime})
+    - if track.total_time
+      == (#{track.pretty_runtime})
 
 - if @album.tracks.empty?
   %em No tracks

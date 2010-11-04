@@ -1,6 +1,6 @@
 namespace :itunes do 
 
-  ITunesXmlPath = '/Users/johncrepezzi/Music/iTunes/iTunes Music Library.xml'
+  ITunesXmlPath = ENV['HOME'] + '/Music/iTunes/iTunes Music Library.xml'
   ITunesSourceIdentifier = 'iTunes'
   Announce = '*** [iMusic]'
 

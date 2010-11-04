@@ -7,7 +7,7 @@ class Track < ActiveRecord::Base
 
   # Give the playtime in a d:dd format
   def pretty_runtime
-    return '0:00' if total_time.nil?
+    return nil if total_time.nil?
     t = total_time / 1000
     minutes = t / 60
     seconds = t - 60 * minutes
