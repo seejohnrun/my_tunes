@@ -51,7 +51,7 @@ namespace :itunes do
     key = nil
     data.children.each do |data|
       if data.name == 'key'
-        key = data.text.downcase.underscore.to_sym
+        key = data.text.downcase.gsub(/\s/, '_').to_sym
       elsif data.name == 'integer'
         track[key] = data.text.to_i
       elsif data.name == 'string'
