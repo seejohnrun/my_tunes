@@ -1,7 +1,7 @@
 class TracksController < ApplicationController
 
-  before_filter :load_track, :only => [:show, :play]
   before_filter :authenticate_user!
+  before_filter :load_track, :only => [:show, :play]
 
   def show
   end

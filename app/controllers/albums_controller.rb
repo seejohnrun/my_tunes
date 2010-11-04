@@ -1,7 +1,7 @@
 class AlbumsController < ApplicationController
 
-  before_filter :load_album, :only => [:show]
   before_filter :authenticate_user!
+  before_filter :load_album, :only => [:show]
 
   def show
   end
