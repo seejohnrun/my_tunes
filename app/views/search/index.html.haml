@@ -1,0 +1,26 @@
+%ul#breadcrumbs
+  %li.crumb= link_to 'Search', search_url
+  - if params[:query]
+    %li.crumb= params[:query]
+
+%form{:action => search_url, :method => :get}
+  %input{:type => 'text', :value => params[:query], :name => 'query'}
+  %input{:type => 'submit', :value => 'Search!'}
+
+- if @tracks && !@tracks.empty?
+  %h3 Tracks
+  %ul.things
+    - @tracks.each do |track|
+      %li= link_to "&mdash; #{track.name} by #{track.artist_name}".html_safe, track_path(track)
+
+- if @artists && !@artists.empty?
+  %h3 Artists
+  %ul.things
+    - @artists.each do |artist|
+      %li= link_to "&mdash; #{artist.name}".html_safe, artist_path(artist)
+
+- if @albums && !@albums.empty?
+  %h3 Albums
+  %ul.things
+    - @albums.each do |album|
+      %li= link_to "&mdash; #{album.name} by #{album.artist_name}".html_safe, album_path(album)

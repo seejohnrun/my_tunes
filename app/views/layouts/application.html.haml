@@ -22,6 +22,7 @@
         #controls
           - if user_signed_in?
             = link_to 'Library', root_url
+            = link_to 'Search', search_url
             = link_to 'Logout', destroy_session_path(:user)
           - else
             = link_to 'Login', new_session_path(:user)

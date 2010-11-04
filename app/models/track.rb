@@ -5,6 +5,13 @@ class Track < ActiveRecord::Base
 
   validates_uniqueness_of :name, :scope => :album_id
 
+  scope :like, lambda { |query|
+    select('tracks.*, artists.name as artist_name').
+    joins('join albums on albums.id = tracks.album_id').
+    joins('join artists on artists.id = albums.artist_id').
+    where('tracks.name LIKE ?', query)
+  }
+
   # Give the playtime in a d:dd format
   def pretty_runtime
     return nil if total_time.nil?

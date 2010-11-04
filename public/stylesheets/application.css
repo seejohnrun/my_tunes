@@ -24,14 +24,14 @@ a, a:visited {
     #top #controls a, #top #controls a:visited {
       margin-left: 10px; }
 
-ul#things {
+ul#things, ul.things {
   list-style-type: none;
   margin: 0px;
   padding: 0px;
   font-size: 13px; }
-  ul#things li {
+  ul#things li, ul.things li {
     margin: 3px 0px; }
-  ul#things .runtime {
+  ul#things .runtime, ul.things .runtime {
     margin-left: 5px;
     display: inline-block;
     color: #555555; }

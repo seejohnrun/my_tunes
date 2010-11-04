@@ -53,10 +53,12 @@ IMusic::Application.routes.draw do
 
   # See how all your routes lay out with "rake routes"
   
+
   resources :artists
   resources :albums
   resources :tracks
 
+  match '/search', :controller => :search, :action => :index
   match '/tracks/:id/play', :controller => :tracks, :action => :play, :as => :track_play
 
   devise_for :users, :path_names => {:sign_in => 'login', :sign_out => 'logout'}
