@@ -1,6 +1,6 @@
 ## Setup
 
-_mytunes_ is a rails application which exposes your iTunes library to the network
+_MyTunes_ is a rails application which exposes your iTunes library to the network
 via a somewhat nice interface.
 
 ### Syncing your Library (Mac-only right now)
@@ -11,3 +11,11 @@ via a somewhat nice interface.
 
     $ bundle install
     $ rails server
+
+---
+
+MyTunes is licensed under the MIT license.
+
+---
+
+Contributions welcome
