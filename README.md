@@ -7,6 +7,10 @@ via a somewhat nice interface.
 
     $ rake itunes:import_xml
 
+### Add a user for yourself (by hand)
+
+    [CONSOLE] User.create(:email => 'seejohnrun@gmail.com', :password => 'xxx', :password_confirmation => 'xxx')
+
 ### Starting the server (tested with ruby 1.9.2) 
 
     $ bundle install
@@ -15,7 +19,4 @@ via a somewhat nice interface.
 ---
 
 MyTunes is licensed under the MIT license.
-
----
-
-Contributions welcome
+Contributions welcome.
